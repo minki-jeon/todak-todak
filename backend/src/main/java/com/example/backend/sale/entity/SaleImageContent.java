@@ -21,7 +21,7 @@ public class SaleImageContent {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "sale_no", nullable = false, referencedColumnName = "sale_no")
-    private Sale saleNo;
+    private Ssale ssaleNo;
 
     @Column(name = "name", nullable = false, length = 300)
     private String name;

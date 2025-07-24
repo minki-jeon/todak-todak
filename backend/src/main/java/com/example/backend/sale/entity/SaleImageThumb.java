@@ -21,7 +21,7 @@ public class SaleImageThumb {
 
     @ManyToOne
     @JoinColumn(name = "sale_no", referencedColumnName = "sale_no")
-    private Sale saleNo;
+    private Ssale ssaleNo;
 
     @Column(name = "name", length = 300)
     private String name;

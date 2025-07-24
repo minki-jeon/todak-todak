@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "sale", schema = "prj4")
-public class Sale {
+public class Ssale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "seq", nullable = false)

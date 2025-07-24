@@ -77,10 +77,17 @@ function App() {
             <Route path="contact/detail" element={<ContactDetail />} />
             {/* 문의게시판 수정 */}
             <Route path="contact/modify" element={<ContactModify />} />
-            {/* 주문배송조회 목록 */}
+            {/* 주문목록 */}
             <Route path="order/list" element={<OrderList />} />
-            {/* 주문배송조회 상세 */}
+            {/* 주문상세 */}
             <Route path="order/detail" element={<OrderDetail />} />
+            {/* 주문배송조회 목록 */}
+            <Route path="order/delivery/list" element={<OrderDeliveryList />} />
+            {/* 주문배송조회 상세 */}
+            <Route
+              path="order/delivery/detail"
+              element={<OrderDeliveryDetail />}
+            />
             {/* 상품수령 상세 */}
             <Route path="receive" element={<ReceiveForm />} />
             {/* 상품수령 업데이트 */}
