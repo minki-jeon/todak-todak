@@ -33,6 +33,9 @@ jobs:
           echo "${{secrets.CUSTOM_PROPERTIES}}" > backend/src/main/resources/secret/custom.properties
           echo "${{secrets.PRIVATE_PEM}}" > backend/src/main/resources/secret/private.pem
           echo "${{secrets.PUBLIC_PEM}}" > backend/src/main/resources/secret/public.pem
+          echo "${{secrets.SSL_DOMAIN_CERT_PEM}}" > backend/src/main/resources/secret/ssl/domain.cert.pem
+          echo "${{secrets.SSL_PRIVATE_KEY_PEM}}" > backend/src/main/resources/secret/private.key.pem
+          echo "${{secrets.SSL_PUBLIC_KEY_PEM}}" > backend/src/main/resources/secret/public.key.pem
 
       # BACKEND BUILD
       - name: build spring boot app
