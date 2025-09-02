@@ -29,10 +29,11 @@ jobs:
       - name: create secret folder and files
         run: |
           mkdir -p backend/src/main/resources/secret
-
           echo "${{secrets.CUSTOM_PROPERTIES}}" > backend/src/main/resources/secret/custom.properties
           echo "${{secrets.PRIVATE_PEM}}" > backend/src/main/resources/secret/private.pem
           echo "${{secrets.PUBLIC_PEM}}" > backend/src/main/resources/secret/public.pem
+          
+          mkdir -p backend/src/main/resources/secret/ssl
           echo "${{secrets.SSL_DOMAIN_CERT_PEM}}" > backend/src/main/resources/secret/ssl/domain.cert.pem
           echo "${{secrets.SSL_PRIVATE_KEY_PEM}}" > backend/src/main/resources/secret/ssl/private.key.pem
           echo "${{secrets.SSL_PUBLIC_KEY_PEM}}" > backend/src/main/resources/secret/ssl/public.key.pem
