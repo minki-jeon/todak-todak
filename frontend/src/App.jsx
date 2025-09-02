@@ -67,7 +67,7 @@ import { PaymentFail } from "./feature/order/PaymentFail.jsx";
 function App() {
   return (
     <AuthenticationContextProvider>
-      <BrowserRouter basename="/todak-todak">
+      <BrowserRouter>
         <Routes>
           {/* Route 분리 (배너 영역 Container 제거) */}
           <Route element={<FullWidthLayout />}>
