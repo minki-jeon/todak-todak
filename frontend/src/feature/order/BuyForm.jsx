@@ -32,7 +32,7 @@ export function BuyForm() {
   const [isProcessing, setIsProcessing] = useState();
   const [orderCount, setOrderCount] = useState(1);
   const [recipient, setRecipient] = useState("");
-  const [payment, setPayment] = useState("");
+  const [payment, setPayment] = useState("kakaoPay");
 
   const [period, setPeriod] = useState(30);
 
@@ -601,6 +601,7 @@ export function BuyForm() {
                                 checked={payment === "naverPay"}
                                 onChange={(e) => setPayment(e.target.value)}
                                 className="payment-method-radio"
+                                disabled
                               />
                               <span
                                 className={`payment-method-text ${payment === "naverPay" ? "selected" : ""}`}
@@ -622,6 +623,7 @@ export function BuyForm() {
                                 checked={payment === "generalPayment"}
                                 onChange={(e) => setPayment(e.target.value)}
                                 className="payment-method-radio"
+                                disabled
                               />
                               <span
                                 className={`payment-method-text ${payment === "generalPayment" ? "selected" : ""}`}
@@ -643,6 +645,7 @@ export function BuyForm() {
                                 checked={payment === "accountTransfer"}
                                 onChange={(e) => setPayment(e.target.value)}
                                 className="payment-method-radio"
+                                disabled
                               />
                               <span
                                 className={`payment-method-text ${payment === "accountTransfer" ? "selected" : ""}`}
