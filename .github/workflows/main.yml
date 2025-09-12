@@ -18,6 +18,7 @@ jobs:
         working-directory: ./frontend
         run: |
           npm ci
+          npm test -- --watchAll=false
           npm run build
 
       - name: copy frontend dist to backend static folder
@@ -43,6 +44,7 @@ jobs:
         working-directory: ./backend
         run: |
           chmod +x gradlew
+          ./gradlew test
           ./gradlew bootJar
 
       # deploy to ec2
