@@ -28,7 +28,7 @@
 - **결제**: 카카오페이 연동 결제 시스템
 - **고객 지원**: 1:1 문의 게시판
 
-### 🛠️ 관리자 기능
+### 🔧 관리자 기능
 
 - **회원 관리**: 회원 정보 조회 및 관리
 - **상품 관리**: 상품 등록, 수정, 삭제
@@ -37,7 +37,7 @@
 - **콘텐츠 관리**: 배너, 카테고리 관리
 - **고객 지원**: 문의 답변 관리
 
-## 🏗️ 기술 스택
+## 🛠️ 기술 스택
 
 ### Backend
 
@@ -68,25 +68,34 @@
 
 ```
 todak-todak/
-├── backend/                 # Spring Boot API 서버
+├── backend/                 # Spring Boot 백엔드
 │   ├── src/main/java/
 │   │   └── com/example/backend/
+│   │       ├── banner/      # 배너 관리
+│   │       ├── category/    # 카테고리 관리
 │   │       ├── common/      # 공통 상수 및 유틸리티
 │   │       ├── config/      # 설정 클래스 (Security, AWS S3 등)
 │   │       ├── contact/     # 문의 게시판
+│   │       ├── delivery/    # 배송 업체 관리
+│   │       ├── main/        
 │   │       ├── member/      # 회원 관리
 │   │       ├── order/       # 주문 관리
 │   │       ├── product/     # 상품 관리
 │   │       ├── rental/      # 대여 관리
 │   │       └── sale/        # 판매 관리
 │   └── src/main/resources/
-└── frontend/                # React 클라이언트
+└── frontend/                # React + Vite 프론트엔드
     ├── src/
+│   │   ├── App.jsx         # BrowserRouter
+│   │   ├── ComingSoon.jsx  # 준비중 안내
+│   │   ├── main.jsx        # 애플리케이션 엔트리 포인트
+    │   ├── assets/         # Astro-Ecommerce
     │   ├── common/         # 공통 컴포넌트 (네비게이션, 인증 등)
     │   ├── feature/        # 기능별 컴포넌트
+    │   ├── json/           # 주문 상태값
     │   ├── main/           # 메인 페이지
     │   └── css/            # 스타일시트
-    └── public/
+    └── public/             # 파비콘, 썸네일
 ```
 
 ## 🚀 시작하기
@@ -167,6 +176,8 @@ todak-todak/
 
 ## 📸 스크린샷
 
+![todak-todak.dev_screen.png](public/todak-todak.dev_screen.png)
+
 ### 메인 페이지
 
 - 메인 배너 (Swiper 슬라이드)
@@ -178,7 +189,6 @@ todak-todak/
 - 상품 상세 페이지
 - 대여 신청 및 결제
 - 주문 내역 조회
-- 관리자 대시보드
 
 ## 📋 주요 기능 상세
 
@@ -194,7 +204,6 @@ todak-todak/
 
 - JWT 기반 토큰 인증
 - Spring Security를 활용한 권한 관리
-- 소셜 로그인 준비 (확장 가능)
 
 ### 결제 시스템
 
@@ -205,20 +214,12 @@ todak-todak/
 ### 파일 관리
 
 - AWS S3를 활용한 이미지 업로드
-- CDN을 통한 빠른 이미지 서비스
-- 썸네일 자동 생성
 
 ### 반응형 디자인
 
 - Bootstrap 5 기반 모바일 친화적 UI
 - 다양한 디바이스 지원
 - 접근성 고려한 UX
-
-## 🐛 알려진 이슈
-
-- [ ] 일부 구형 브라우저 호환성 이슈
-- [ ] 대용량 이미지 업로드 최적화 필요
-- [ ] 실시간 알림 기능 개발 중
 
 ## 📝 라이선스
 
