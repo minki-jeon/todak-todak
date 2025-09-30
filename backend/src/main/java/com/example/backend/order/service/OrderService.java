@@ -61,6 +61,7 @@ public class OrderService {
      * @param endDate   종료일 필터 (선택)
      * @return 주문 목록 DTO 리스트
      */
+    @Deprecated
     public List<OrderManageDto> findOrders(
             Integer memberSeq,
             String status,
@@ -148,6 +149,7 @@ public class OrderService {
      * @param orderSeq 주문 번호 (PK)
      * @return 주문 상세 DTO
      */
+    @Deprecated
     public OrderDetailDto getOrderDetail(Integer orderSeq) {
         // 🔍 주문 조회
         OrderManage order = orderManageRepository.findById(orderSeq).orElse(null);

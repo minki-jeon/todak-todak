@@ -187,7 +187,7 @@ export function PasswordEmailAuth() {
                     placeholder="인증번호 입력"
                     autoComplete="off"
                     value={emailCode}
-                    onChange={(e) => setEmailCode(e.target.value)}
+                    onChange={(e) => setEmailCode(e.target.value.trim())}
                     disabled={emailVerified}
                     className={valids.email ? "is-valid" : ""}
                   />
