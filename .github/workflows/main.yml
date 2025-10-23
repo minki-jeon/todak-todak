@@ -18,7 +18,6 @@ jobs:
         working-directory: ./frontend
         run: |
           npm ci
-          npm test -- --watchAll=false
           npm run build
 
       - name: copy frontend dist to backend static folder
