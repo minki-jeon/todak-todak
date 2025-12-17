@@ -42,7 +42,7 @@ jobs:
       - name: build spring boot app
         working-directory: ./backend
         env:
-          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          NVD_API_KEY: ${{secrets.NVD_API_KEY}}
         run: |
           chmod +x gradlew
           ./gradlew test
