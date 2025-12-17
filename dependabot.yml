@@ -1,0 +1,41 @@
+version: 2
+updates:
+  # =========================
+  # Frontend (Vite + React)
+  # =========================
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps(frontend)"
+    labels:
+      - "dependencies"
+      - "frontend"
+      - "security"
+    ignore:
+      # React 메이저 버전은 직접 검토 후 업그레이드
+      - dependency-name: "react"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "react-dom"
+        update-types: [ "version-update:semver-major" ]
+
+  # =========================
+  # Backend (Spring Boot - Gradle)
+  # =========================
+  - package-ecosystem: "gradle"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps(backend)"
+    labels:
+      - "dependencies"
+      - "backend"
+      - "security"
