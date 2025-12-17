@@ -46,7 +46,7 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew test
-          ./gradlew dependencyCheckAnalyze || \
+          ./gradlew dependencyCheckAnalyze --no-daemon || \
             echo "::warning::Security scan detected potential issues in dependencies. Please review the dependency-check report. Deployment will continue."
           ./gradlew bootJar
 
