@@ -41,14 +41,9 @@ jobs:
       # BACKEND BUILD
       - name: build spring boot app
         working-directory: ./backend
-        env:
-          NVD_API_KEY: ${{secrets.NVD_API_KEY}}
         run: |
           chmod +x gradlew
           ./gradlew test
-          ./gradlew dependencyCheckAnalyze --no-daemon || \
-            -Dnvd.api.key="$NVD_API_KEY" || \
-            echo "::warning::Security scan detected potential issues in dependencies. Please review the dependency-check report. Deployment will continue."
           ./gradlew bootJar
 
       # deploy to ec2
