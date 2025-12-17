@@ -1,7 +1,8 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.3'
+    id 'org.springframework.boot' version '3.5.8'
     id 'io.spring.dependency-management' version '1.1.7'
+    id "org.owasp.dependencycheck" version "12.1.9"
 }
 
 group = 'com.example'
@@ -35,6 +36,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation "software.amazon.awssdk:s3:2.32.2"
+}
+
+dependencyCheck {
+    failBuildOnCVSS = 7.0
+    formats = ["HTML", "JSON"]
+    suppressionFile = "dependency-check-suppressions.xml"
+    failOnError = false
+    skipConfigurations = ["testImplementation"]
 }
 
 tasks.named('test') {
