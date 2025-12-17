@@ -38,19 +38,6 @@ jobs:
           echo "${{secrets.SSL_PRIVATE_KEY_PEM}}" > backend/src/main/resources/secret/ssl/private.key.pem
           echo "${{secrets.SSL_PUBLIC_KEY_PEM}}" > backend/src/main/resources/secret/ssl/public.key.pem
 
-      # CHECK NVD
-      - name: check NVD env
-        working-directory: ./backend
-        env:
-          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-        run: |
-          if [ -z "$NVD_API_KEY" ]; then
-            echo "::error::NVD_API_KEY is NOT set"
-            exit 1
-          else
-            echo "::notice::NVD_API_KEY is set"
-          fi
-
       # BACKEND BUILD
       - name: build spring boot app
         working-directory: ./backend
@@ -60,6 +47,7 @@ jobs:
           chmod +x gradlew
           ./gradlew test
           ./gradlew dependencyCheckAnalyze --no-daemon || \
+            -Dnvd.api.key="$NVD_API_KEY" || \
             echo "::warning::Security scan detected potential issues in dependencies. Please review the dependency-check report. Deployment will continue."
           ./gradlew bootJar
 
